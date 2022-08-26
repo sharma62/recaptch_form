@@ -1,4 +1,4 @@
-# ****Google recaptch_form 
+# Google recaptch_form 
 > # Tech stack used
 
 1. Bootstrap 
