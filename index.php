@@ -52,11 +52,28 @@
 
           </div>
           <input type="submit" id="btnSubmit" class="btn btn-primary" name="submit" value="submit">
+          <label for="" id="msg"></label>
       </div>
       </form>
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+     jQuery('#form_sheet').on('submit', function(e) { 
+       jQuery.ajax({
+         url: 'https://script.google.com/macros/s/AKfycbx6L0DTPx7YWUWeJiKhZu8v0-lZv9SSbDR5h4myfm_wJNqyUseT24xW8rAGtVhW_JFyRg/exec',
+         type: 'post',
+         data: jQuery('#form_sheet').serialize(),
+          success: function(res) {
+          //  jQuery('#form_sheet')[0].reset();
+          //  jQuery('#msg').html('We will back soon ...');
+           
+          }
+       });
+     
+     });
+   </script>
 
 </body>
 
