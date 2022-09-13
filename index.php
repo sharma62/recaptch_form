@@ -5,8 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Form sheet</title>
-   </script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 
@@ -51,6 +52,9 @@
             </div>
 
           </div>
+          <div id="loader-icon">
+            <img src="img/loader.gif" alt="loader-img" style="display: none;">
+          </div>
           <input type="submit" id="btnSubmit" class="btn btn-primary" name="submit" value="submit">
           <label for="" id="msg"></label>
       </div>
@@ -58,22 +62,25 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-     jQuery('#form_sheet').on('submit', function(e) { 
-       jQuery.ajax({
-         url: 'https://script.google.com/macros/s/AKfycbx6L0DTPx7YWUWeJiKhZu8v0-lZv9SSbDR5h4myfm_wJNqyUseT24xW8rAGtVhW_JFyRg/exec',
-         type: 'post',
-         data: jQuery('#form_sheet').serialize(),
+    $(document).ready(function(e) {
+      $('#form_sheet').on('submit', function(e) {
+        $("#loader-img").show();
+        jQuery.ajax({ 
+          url: 'https://script.google.com/macros/s/AKfycbx6L0DTPx7YWUWeJiKhZu8v0-lZv9SSbDR5h4myfm_wJNqyUseT24xW8rAGtVhW_JFyRg/exec',
+          type: 'post',
+          data: jQuery('#form_sheet').serialize(),
           success: function(res) {
-          //  jQuery('#form_sheet')[0].reset();
-          //  jQuery('#msg').html('We will back soon ...');
-           
+            // $('#msg').html('We will back soon ...');
+
+
+
           }
-       });
-     
-     });
-   </script>
+        });
+
+      });
+    });
+  </script>
 
 </body>
 

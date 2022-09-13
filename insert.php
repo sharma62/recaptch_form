@@ -28,15 +28,12 @@ if (isset($_POST['submit']) && $_POST['g-recaptcha-response']) {
 
       
 
-    } else {
-        echo 'alert("invaild captcha ")';
-     }
-
+    }  
 } else {
     ?>
     <script>
         alert("Please verify Captcha");
-    </script>
+        </script>
 <?php
 }
 
